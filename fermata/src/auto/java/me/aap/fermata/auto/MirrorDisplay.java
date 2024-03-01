@@ -223,7 +223,7 @@ public class MirrorDisplay {
 
 	public static void disableAccelRotation() {
 		var app = FermataApplication.get();
-		app.getHandler().postDelayed(() -> disableAccelRotation(app), 3000);
+		//app.getHandler().postDelayed(() -> disableAccelRotation(app), 3000);
 	}
 
 	private static void disableAccelRotation(Context ctx) {
@@ -249,6 +249,7 @@ public class MirrorDisplay {
 
 	private static void restoreAccelRotation(Context ctx) {
 		var a = EventDispatcher.get().getActivity();
+		accel = -1;
 		if (a != null) a.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
 		if (accel == -1) return;
 		try {
@@ -290,7 +291,7 @@ public class MirrorDisplay {
 		}
 
 		dimScreen(app);
-		disableAccelRotation(app);
+		//disableAccelRotation(app);
 
 		var pmg = (PowerManager) app.getSystemService(POWER_SERVICE);
 		if (pmg != null) {
@@ -574,7 +575,7 @@ public class MirrorDisplay {
 			protected void perform() {
 				var ctx = getContext();
 				dimScreen(ctx);
-				disableAccelRotation(ctx);
+				//disableAccelRotation(ctx);
 			}
 		};
 

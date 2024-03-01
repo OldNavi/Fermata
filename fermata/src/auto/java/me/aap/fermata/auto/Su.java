@@ -41,7 +41,7 @@ public class Su {
 			executor.execute(() -> {
 				try {
 					int timeout = 15000;
-					var pb = new ProcessBuilder("su", "-c", "ls");
+					var pb = new ProcessBuilder("sh", "-c", "ls");
 					var p = pb.start();
 					int ec;
 
@@ -53,9 +53,9 @@ public class Su {
 						ec = p.waitFor();
 					}
 					if (ec == 0) {
-						promise.complete(new PrintWriter(new ProcessBuilder("su").start().getOutputStream()));
+						promise.complete(new PrintWriter(new ProcessBuilder("sh").start().getOutputStream()));
 					} else {
-						promise.completeExceptionally(new IOException("su not found"));
+						promise.completeExceptionally(new IOException("sh not found"));
 						p.destroy();
 					}
 				} catch (Exception err) {

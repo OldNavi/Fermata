@@ -195,12 +195,12 @@ public class MirrorActivity extends CarActivity implements SurfaceHolder.Callbac
 
 			moveTolerance = toPx(ctx, 10);
 			animation = AnimationUtils.loadAnimation(ctx, me.aap.utils.R.anim.button_press);
-			delayedHide.schedule(5000);
+			delayedHide.schedule(1500);
 		}
 
 		void show() {
 			setVisibility(VISIBLE);
-			delayedHide.schedule(5000);
+			delayedHide.schedule(1500);
 		}
 
 		@SuppressLint("ClickableViewAccessibility")
