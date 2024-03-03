@@ -46,6 +46,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.apps.auto.sdk.CarActivity;
 import com.google.android.apps.auto.sdk.CarUiController;
 
+import java.util.Arrays;
+
 import me.aap.fermata.R;
 import me.aap.fermata.media.service.FermataMediaServiceConnection;
 import me.aap.fermata.ui.activity.FermataActivity;
@@ -176,6 +178,7 @@ public class MainCarActivity extends CarActivity implements FermataActivity {
 	}
 
 	public FutureSupplier<int[]> checkPermissions(String... perms) {
+		android.util.Log.d("CarActivity", "checkPermissions: permissions = "+ Arrays.toString(perms));
 		return failed(new UnsupportedOperationException());
 	}
 
@@ -502,7 +505,7 @@ public class MainCarActivity extends CarActivity implements FermataActivity {
 				clearFocus();
 				setVisibility(GONE);
 				MediaItemListView.focusActive(activity.getContext(), null);
-			}, 5000);
+			}, 1500);
 		}
 
 		void show(float cursorX, float cursorY) {

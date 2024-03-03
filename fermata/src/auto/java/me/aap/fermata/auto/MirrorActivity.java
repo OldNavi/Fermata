@@ -13,6 +13,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Point;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -53,9 +54,15 @@ public class MirrorActivity extends CarActivity implements SurfaceHolder.Callbac
 			@SuppressLint("ClickableViewAccessibility")
 			@Override
 			public boolean onTouchEvent(MotionEvent e) {
-				if (sc != null) md.setSurface(sc);
+				if (sc != null && md != null) {
+					try {
+						md.setSurface(sc);
+					} catch (Exception ex) {
+						Log.e("MirrorActivity", "onTouchEvent: ", ex);
+					}
+				}
 				tb.show();
-				return md.motionEvent(e);
+				return md != null && md.motionEvent(e);
 			}
 		};
 		s.setLayoutParams(new FrameLayout.LayoutParams(MATCH_PARENT, MATCH_PARENT));
