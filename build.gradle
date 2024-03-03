@@ -1,5 +1,5 @@
 ext {
-    VERSION_CODE = 237
+    VERSION_CODE = 238
     VERSION_NAME = "1.9.9"
     SDK_MIN_VERSION = 23
     SDK_TARGET_VERSION = 34
@@ -60,7 +60,7 @@ subprojects {
             targetSdkVersion SDK_TARGET_VERSION
             vectorDrawables.useSupportLibrary = true
             testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-            resConfigs 'en', 'ru', 'it', 'tr', 'de', 'pt', 'vi', 'pl', 'hr', 'ja', 'zh_TW', 'ko'
+            resConfigs 'en', 'ru', 'it', 'tr', 'de', 'pt', 'vi', 'pl', 'hr', 'ja', 'zh_TW', 'ko', 'fr', 'ro'
         }
 
         if (isDynFeature) {
